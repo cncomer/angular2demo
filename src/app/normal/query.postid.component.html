@@ -1,0 +1,14 @@
+<div class="flex_box--vertical">
+    <my-ems-toolbar [title]="title" class="width100"></my-ems-toolbar>
+
+    <div class="fill_space">
+        <div class="query_input_layout flex_box">
+            <input [(ngModel)]="postId" placeholder="请输入运单号查询货运信息" />
+            <img src="../../assets/images/ic_scan_postid.png" id="scan" (click)="scan()">
+        </div>
+
+        <p class="query" (click)="onQuery()">查询</p>
+    </div>
+</div>
+
+

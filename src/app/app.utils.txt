@@ -1,0 +1,26 @@
+/**
+ * Created by bestjoy on 16/8/19.
+ */
+//提取url参数字串
+//export function getUrlParams(url: string): string {
+//    let index = url.indexOf('?');
+//    console.log(index);
+//    if (index != -1) {
+//        return url.substring('?'.length);
+//    } else {
+//        return "";
+//    }
+//}
+////提取url参数字串组成键值对
+//export function getUrlParamsObject(url: string) {
+//    let paramAndValuePairs = getUrlParams(url);
+//    let resultValue = {};
+//    let array = paramAndValuePairs.split("&");
+//    let len = array.length;
+//    for(let index=0; index < len; index++) {
+//        let pair = array[index].split("=");
+//        resultValue[pair[0]] = pair[1];
+//    }
+//    return resultValue;
+//}
+

@@ -1,0 +1,44 @@
+<div class="flex_box--vertical">
+    <my-ems-toolbar [title]="title" class="width100"></my-ems-toolbar>
+
+    <div *ngIf="!emsNormalExpressObject" class="load_layout">
+        <span id="loadText">{{loadText}}</span>
+    </div>
+
+    <div *ngIf="emsNormalExpressObject" class="status_layout">
+        <span id="postid" #postid>邮件单号: {{emsNormalExpressObject.nu}}</span>
+        <span id="state" #state>状态: {{getState()}}</span>
+    </div>
+    <div class="fill_space progress_layout" *ngIf = "emsNormalExpressProgressList">
+        <table id="queryResult2" class="result-info2" cellspacing="0">
+            <tbody>
+            <tr *ngFor="let emsNormalExpressProgress of emsNormalExpressProgressList;let i=index">
+                <td class="row1" [class.selected]="i==0">{{emsNormalExpressProgress.time}}</td>
+                <td class="status" [class.status-check]="i==0"> </td>
+                <td [class.selected]="i==0">{{emsNormalExpressProgress.context}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!--<div> <my-ems-toolbar [title]="title"></my-ems-toolbar></div>-->
+<!--<div *ngIf="emsNormalExpressObject" class="status">-->
+    <!--<span id="postid" #postid>邮件单号: {{emsNormalExpressObject.nu}}</span>-->
+    <!--<span id="state" #state>状态: {{getState()}}</span>-->
+<!--</div>-->
+<!--<div class="fullSection progress_layout" *ngIf = "emsNormalExpressProgressList">-->
+    <!--<table id="queryResult2" class="result-info2" cellspacing="0">-->
+        <!--<tbody>-->
+        <!--<tr *ngFor="let emsNormalExpressProgress of emsNormalExpressProgressList;let i=index">-->
+            <!--<td class="row1" [class.selected]="i==0">{{emsNormalExpressProgress.time}}</td>-->
+            <!--<td class="status" [class.status-check]="i==0"></td>-->
+            <!--<td [class.selected]="i==0">{{getProgressContext(emsNormalExpressProgress.context)}}</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+<!--</div>-->
+
+
+

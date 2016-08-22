@@ -1,0 +1,26 @@
+.query_input_layout {
+    border: solid 1px #9E9E9E;
+    border-radius: 2px;
+    width: 80%;
+    margin: 50px auto 0px auto;
+    padding: 4px 10px;
+}
+#scan {
+    width: 24px;
+}
+.query_input_layout input {
+    flex-grow: 1;
+    margin-right: 10px;
+    height: 30px;
+    font-size: 90%;
+}
+
+.query {
+    width: 70%;
+    color: #ffffff;
+    background: #f08200;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin: 100px auto 0 auto;
+}
