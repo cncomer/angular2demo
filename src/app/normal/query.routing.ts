@@ -7,13 +7,13 @@ import {EmsToolBarComponent} from '../top.toolbar.component';
 import {NormalQueryPostIdComponent} from './query.postid.component';
 import {EmsNormalExpressComponent} from './ems.app.express.normal.detail.component';
 const normalQueryRoutes: Routes = [
-    //{
-    //    path: '',
-    //    redirectTo: '/query',
-    //    pathMatch: 'full'
-    //},
     {
         path: '',
+        redirectTo: '/query',
+        pathMatch: 'full'
+    },
+    {
+        path: 'query',
         component: NormalQueryNavComponent,
         children: [
             { path: ':id',  component: EmsNormalExpressComponent },

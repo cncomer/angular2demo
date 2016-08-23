@@ -4,6 +4,12 @@ var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
 
 module.exports = webpackMerge(commonConfig, {
+    /**
+     * Switch loaders to debug mode.
+     *
+     * See: http://webpack.github.io/docs/configuration.html#debug
+     */
+    debug: true,
     devtool: 'cheap-module-eval-source-map',
 
     output: {

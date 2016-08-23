@@ -49,7 +49,7 @@ export class NormalQueryPostIdComponent implements OnInit{
         console.log('scan reset localStorage.normalScanResultCode '+ this.postId);
         window.localStorage.setItem('normalScanResultCode', '');
         let serviceConfig = new ServiceConfig();
-        window.location.href = encodeURI('http://www.dzbxk.com/maxcosi/commonscan.html?target=' + serviceConfig.normalEmsServiceUrl + '/?action=scan');
+        window.location.href = encodeURI('http://www.dzbxk.com/maxcosi/commonscan.html?target=' + serviceConfig.normalEmsServiceUrl + '/#/query/?action=scan');
     }
 
     public setTitle( newTitle: string) {
@@ -63,7 +63,7 @@ export class NormalQueryPostIdComponent implements OnInit{
             return;
         }
 
-        let link = ['/', postId];
+        let link = ['/query', postId];
         console.log('onQuery postId=' + postId);
         this.router.navigate(link)
     }
