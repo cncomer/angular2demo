@@ -5,10 +5,10 @@
  */
 
 import { Component, OnInit, Input } from '@angular/core';
-import {NormalExpressQueryService} from "./query.service";
-import {EmsNormalExpressObject, EmsNormalExpressStateDescArray} from "./ems.normal.expressobject";
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {EmsExpressProgressObject} from "./ems.express.progress.object";
+import {NormalExpressQueryService} from './query.service';
+import {EmsNormalExpressObject, EmsNormalExpressStateDescArray} from './ems.normal.expressobject';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {EmsExpressProgressObject} from './ems.express.progress.object';
 
 @Component({
     //moduleId: module.id,
@@ -20,8 +20,8 @@ export class EmsNormalExpressComponent implements OnInit{
     @Input()
     emsNormalExpressObject: EmsNormalExpressObject;
     emsNormalExpressProgressList: EmsExpressProgressObject[];
-    title: string = "邮件详情";
-    loadText: string = "正在查询,请稍后...";
+    title: string = '邮件详情';
+    loadText: string = '正在查询,请稍后...';
 
     fromHome: boolean = false;
 
@@ -38,7 +38,7 @@ export class EmsNormalExpressComponent implements OnInit{
         //     * 该干嘛干嘛
         //     */
         //});
-        console.log("EmsNormalExpressComponent ngOnInit");
+        console.log('EmsNormalExpressComponent ngOnInit');
         this.route.params.forEach((params: Params) => {
             let id = params['id'];
             this.normalExpressQueryService.getEmsNormalExpressObject(id).then(

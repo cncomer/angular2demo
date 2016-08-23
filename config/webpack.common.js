@@ -8,8 +8,8 @@ const helpers = require('./helpers');
 /*
  * Webpack Plugins
  */
+var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 // problem with copy-webpack-plugin
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
@@ -70,6 +70,13 @@ module.exports = {
      * See: http://webpack.github.io/docs/configuration.html#module
      */
     module: {
+        preLoaders: [
+            //{
+            //    test: /\.ts$/,
+            //    exclude: /node_modules/,
+            //    loader: 'tslint'
+            //}
+        ],
         /*
          * An array of automatically applied loaders.
          *
@@ -141,6 +148,24 @@ module.exports = {
     },
 
 
+    // more options in the optional jshint object
+    //jshint: {
+    //    // any jshint option http://www.jshint.com/docs/options/
+    //    // i. e.
+    //    camelcase: true,
+    //
+    //    // jshint errors are displayed by default as warnings
+    //    // set emitErrors to true to display them as errors
+    //    emitErrors: false,
+    //
+    //    // jshint to not interrupt the compilation
+    //    // if you want any file with jshint errors to fail
+    //    // set failOnHint to true
+    //    failOnHint: false,
+    //
+    //    // custom reporter function
+    //    reporter: function(errors) { }
+    //},
     /*
      * Add additional plugins to the compiler.
      *
@@ -170,19 +195,6 @@ module.exports = {
         }),
 
         /*
-         * Plugin: CopyWebpackPlugin
-         * Description: Copy files and directories in webpack.
-         *
-         * Copies project static assets.
-         *
-         * See: https://www.npmjs.com/package/copy-webpack-plugin
-         */
-        new CopyWebpackPlugin([{
-            from: 'src/assets',
-            to: 'assets'
-        }]),
-
-        /*
          * Plugin: HtmlWebpackPlugin
          * Description: Simplifies creation of HTML files to serve your webpack bundles.
          * This is especially useful for webpack bundles that include a hash in the filename
@@ -193,7 +205,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             chunksSortMode: 'dependency'
-        }),
+        })
 
     ],
 

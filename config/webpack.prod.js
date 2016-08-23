@@ -4,7 +4,7 @@ var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 /**
  * Webpack Constants
@@ -41,10 +41,14 @@ module.exports = webpackMerge(commonConfig, {
          * See: http://webpack.github.io/docs/configuration.html#output-path
          */
         path: helpers.root('dist'),
-        publicPath: '',
+        publicPath: '/ems/normal/',
         filename: '[name].[hash].js',
         chunkFilename: '[id].[hash].chunk.js'
 
+    },
+
+    htmlLoader: {
+        minimize: false // workaround for ng2
     },
 
     /**
@@ -62,6 +66,18 @@ module.exports = webpackMerge(commonConfig, {
                 'ENV': JSON.stringify(ENV)
             }
         })
+        /*
+         * Plugin: CopyWebpackPlugin
+         * Description: Copy files and directories in webpack.
+         *
+         * Copies project static assets.
+         *
+         * See: https://www.npmjs.com/package/copy-webpack-plugin
+         */
+        //new CopyWebpackPlugin([{
+        //    from: 'src/assets',
+        //    to: 'assets'
+        //}]),
 
     ]
 });

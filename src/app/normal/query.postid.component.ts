@@ -1,10 +1,10 @@
 /**
  * Created by bestjoy on 16/8/16.
  */
-import { Component,Input, OnInit } from '@angular/core';
-import {Title} from "@angular/platform-browser";
-import {Router} from "@angular/router";
-import {ServiceConfig} from "../ems.service.config";
+import { Component, Input, OnInit } from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {Router} from '@angular/router';
+import {ServiceConfig} from '../ems.service.config';
 //let templateHtml = require('./query.postid.component.html');
 //let templateCss = require('./query.postid.component.css');
 @Component({
@@ -16,29 +16,29 @@ import {ServiceConfig} from "../ems.service.config";
 export class NormalQueryPostIdComponent implements OnInit{
     title = '邮政速递物流';
 
-    @Input() postId: string = "";
+    @Input() postId: string = '';
 
     constructor(private titleService: Title, private router: Router) {
-        console.log("NormalQueryPostIdComponent constructor");
-        this.setTitle("邮政速递物流");
+        console.log('NormalQueryPostIdComponent constructor');
+        this.setTitle('邮政速递物流');
     }
 
 
     ngOnInit():void {
         let url: string = decodeURI(window.location.href);
-        console.log("NormalQueryPostIdComponent ngOnInit " + url);
+        console.log('NormalQueryPostIdComponent ngOnInit ' + url);
         let params: {action?: string, code?: string} = this.getUrlParamsObject(url);
         if (params && params.action && params.action == 'scan') {
             if (params.code) {
                 this.postId = params.code;
                 let lastCode: string = window.localStorage.getItem('normalScanResultCode');
                 if (lastCode !== params.code) {
-                    console.log("ngOnInit localStorage.normalScanResultCode setItem "+ params.code);
+                    console.log('ngOnInit localStorage.normalScanResultCode setItem '+ params.code);
                     window.localStorage.setItem('normalScanResultCode', params.code);
                     this.onQuery();
                 }
             } else {
-                console.log("ngOnInit scan return code "+ params.code);
+                console.log('ngOnInit scan return code '+ params.code);
             }
         }
 
@@ -46,7 +46,7 @@ export class NormalQueryPostIdComponent implements OnInit{
 
     public scan(): void {
         //console.log("scan " + window.location.href);
-        console.log("scan reset localStorage.normalScanResultCode "+ this.postId);
+        console.log('scan reset localStorage.normalScanResultCode '+ this.postId);
         window.localStorage.setItem('normalScanResultCode', '');
         let serviceConfig = new ServiceConfig();
         window.location.href = encodeURI('http://www.dzbxk.com/maxcosi/commonscan.html?target=' + serviceConfig.normalEmsServiceUrl + '/?action=scan');
@@ -64,17 +64,17 @@ export class NormalQueryPostIdComponent implements OnInit{
         }
 
         let link = ['/', postId];
-        console.log("onQuery postId=" + postId);
+        console.log('onQuery postId=' + postId);
         this.router.navigate(link)
     }
 
     getUrlParams(url: string) {
-        var index: number = url.indexOf('?');
+        let index: number = url.indexOf('?');
         console.log(index);
         if (index != -1) {
-            return url.substring(index+1);
+            return url.substring(index + 1);
         } else {
-            return "";
+            return '';
         }
     }
 
@@ -84,10 +84,10 @@ export class NormalQueryPostIdComponent implements OnInit{
             return {action:'no', code:''};
         }
         let resultValue = {};
-        let array: string[] = paramAndValuePairs.split("&");
+        let array: string[] = paramAndValuePairs.split('&');
         let len = array.length;
         for (let index = 0; index < len; index++) {
-            let pair = array[index].split("=");
+            let pair = array[index].split('=');
             resultValue[pair[0]] = pair[1];
         }
         return resultValue;

@@ -24,11 +24,11 @@ import {EmsExpressProgressObject} from "./ems.express.progress.object";
  ischeck	无意义，请忽略
  * Created by bestjoy on 16/8/16.
  */
-export const EmsNormalExpressStateDescArray: string[] = ["在途", "揽件", "疑难", "签收", "退签", "派件", "退回"];
+export const EmsNormalExpressStateDescArray: string[] = ['在途', '揽件', '疑难', '签收', '退签', '派件', '退回'];
 
 
 
-export class EmsNormalExpressObject{
+export class EmsNormalExpressObject {
     public state: string;
     public status: string;
     public com: string;

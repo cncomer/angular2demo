@@ -23,11 +23,11 @@
  ischeck	无意义，请忽略
  * Created by bestjoy on 16/8/16.
  */
-exports.EmsNormalExpressStateDescArray = ["在途", "揽件", "疑难", "签收", "退签", "派件", "退回"];
+exports.EmsNormalExpressStateDescArray = ['在途', '揽件', '疑难', '签收', '退签', '派件', '退回'];
 var EmsNormalExpressObject = (function () {
     function EmsNormalExpressObject() {
     }
     return EmsNormalExpressObject;
 })();
 exports.EmsNormalExpressObject = EmsNormalExpressObject;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW1zLm5vcm1hbC5leHByZXNzb2JqZWN0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiZW1zLm5vcm1hbC5leHByZXNzb2JqZWN0LnRzIl0sIm5hbWVzIjpbIkVtc05vcm1hbEV4cHJlc3NPYmplY3QiLCJFbXNOb3JtYWxFeHByZXNzT2JqZWN0LmNvbnN0cnVjdG9yIl0sIm1hcHBpbmdzIjoiQUFDQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBd0JHO0FBQ1Usc0NBQThCLEdBQWEsQ0FBQyxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLENBQUMsQ0FBQztBQUluRztJQUFBQTtJQU9BQyxDQUFDQTtJQUFERCw2QkFBQ0E7QUFBREEsQ0FBQ0EsQUFQRCxJQU9DO0FBUFksOEJBQXNCLHlCQU9sQyxDQUFBIn0=
+//# sourceMappingURL=ems.normal.expressobject.js.map

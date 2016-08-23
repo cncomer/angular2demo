@@ -4,7 +4,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response, Jsonp, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import {EmsNormalExpressObject} from "./ems.normal.expressobject";
+import {EmsNormalExpressObject} from './ems.normal.expressobject';
 
 @Injectable()
 export class NormalExpressQueryService {
@@ -14,7 +14,7 @@ export class NormalExpressQueryService {
 
     public getEmsNormalExpressObject(id: string): Promise<EmsNormalExpressObject> {
 
-        console.log("NormalExpressQueryService getEmsNormalExpressObject id " + id );
+        console.log('NormalExpressQueryService getEmsNormalExpressObject id ' + id );
         let params = new URLSearchParams();
         params.set('type', "ems"); // the user's search value
         params.set('postid', id);
@@ -32,9 +32,9 @@ export class NormalExpressQueryService {
     //}
 
     private extractData(res: Response) {
-        console.log("Response " + res);
+        console.log('Response ' + res);
         let body = res.json();
-        console.log("Response " + JSON.stringify(body));
+        console.log('Response ' + JSON.stringify(body));
         body = body || { };
         if (body) {
             if (body.status !== '200') {
