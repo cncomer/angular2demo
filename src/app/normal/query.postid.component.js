@@ -13,9 +13,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by bestjoy on 16/8/16.
  */
 var core_1 = require('@angular/core');
-var platform_browser_1 = require("@angular/platform-browser");
-var router_1 = require("@angular/router");
-var ems_service_config_1 = require("../ems.service.config");
+var platform_browser_1 = require('@angular/platform-browser');
+var router_1 = require('@angular/router');
+var ems_service_config_1 = require('../ems.service.config');
 //let templateHtml = require('./query.postid.component.html');
 //let templateCss = require('./query.postid.component.css');
 var NormalQueryPostIdComponent = (function () {
@@ -23,32 +23,32 @@ var NormalQueryPostIdComponent = (function () {
         this.titleService = titleService;
         this.router = router;
         this.title = '邮政速递物流';
-        this.postId = "";
-        console.log("NormalQueryPostIdComponent constructor");
-        this.setTitle("邮政速递物流");
+        this.postId = '';
+        console.log('NormalQueryPostIdComponent constructor');
+        this.setTitle('邮政速递物流');
     }
     NormalQueryPostIdComponent.prototype.ngOnInit = function () {
         var url = decodeURI(window.location.href);
-        console.log("NormalQueryPostIdComponent ngOnInit " + url);
+        console.log('NormalQueryPostIdComponent ngOnInit ' + url);
         var params = this.getUrlParamsObject(url);
         if (params && params.action && params.action == 'scan') {
             if (params.code) {
                 this.postId = params.code;
                 var lastCode = window.localStorage.getItem('normalScanResultCode');
                 if (lastCode !== params.code) {
-                    console.log("ngOnInit localStorage.normalScanResultCode setItem " + params.code);
+                    console.log('ngOnInit localStorage.normalScanResultCode setItem ' + params.code);
                     window.localStorage.setItem('normalScanResultCode', params.code);
                     this.onQuery();
                 }
             }
             else {
-                console.log("ngOnInit scan return code " + params.code);
+                console.log('ngOnInit scan return code ' + params.code);
             }
         }
     };
     NormalQueryPostIdComponent.prototype.scan = function () {
         //console.log("scan " + window.location.href);
-        console.log("scan reset localStorage.normalScanResultCode " + this.postId);
+        console.log('scan reset localStorage.normalScanResultCode ' + this.postId);
         window.localStorage.setItem('normalScanResultCode', '');
         var serviceConfig = new ems_service_config_1.ServiceConfig();
         window.location.href = encodeURI('http://www.dzbxk.com/maxcosi/commonscan.html?target=' + serviceConfig.normalEmsServiceUrl + '/?action=scan');
@@ -62,9 +62,9 @@ var NormalQueryPostIdComponent = (function () {
             alert('请输入运单号');
             return;
         }
-        var link = ['/', postId];
-        console.log("onQuery postId=" + postId);
-        this.router.navigate(link);
+        var link = ['/query', postId];
+        console.log('onQuery postId=' + postId);
+        this.router.navigateByUrl('/query/' + postId);
     };
     NormalQueryPostIdComponent.prototype.getUrlParams = function (url) {
         var index = url.indexOf('?');
@@ -73,7 +73,7 @@ var NormalQueryPostIdComponent = (function () {
             return url.substring(index + 1);
         }
         else {
-            return "";
+            return '';
         }
     };
     NormalQueryPostIdComponent.prototype.getUrlParamsObject = function (url) {
@@ -81,11 +81,15 @@ var NormalQueryPostIdComponent = (function () {
         if (paramAndValuePairs == '') {
             return { action: 'no', code: '' };
         }
+        var end = paramAndValuePairs.indexOf('#');
+        if (end > 0) {
+            paramAndValuePairs = paramAndValuePairs.substring(0, end);
+        }
         var resultValue = {};
-        var array = paramAndValuePairs.split("&");
+        var array = paramAndValuePairs.split('&');
         var len = array.length;
         for (var index = 0; index < len; index++) {
-            var pair = array[index].split("=");
+            var pair = array[index].split('=');
             resultValue[pair[0]] = pair[1];
         }
         return resultValue;

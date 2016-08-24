@@ -67,8 +67,7 @@ export class EmsNormalExpressComponent implements OnInit{
     }
 
     goBack() {
-       //window.history.back();
-        this.router.navigate(['query']);
+        this.router.navigateByUrl('/query');
     }
 
 }

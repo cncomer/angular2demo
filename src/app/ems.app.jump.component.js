@@ -10,17 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require("@angular/platform-browser");
+var platform_browser_1 = require('@angular/platform-browser');
 //import {getUrlParamsObject} from './app.utils';
-var router_1 = require("@angular/router");
+var router_1 = require('@angular/router');
 var EmsAppJumpComponent = (function () {
     function EmsAppJumpComponent(titleService, router) {
         this.titleService = titleService;
         this.router = router;
-        this.setTitle("邮政速递物流");
+        this.setTitle('邮政速递物流');
     }
     EmsAppJumpComponent.prototype.ngOnInit = function () {
-        console.log("EmsAppJumpComponent ngOnInit " + window.location.href);
+        console.log('EmsAppJumpComponent ngOnInit ' + window.location.href);
         var params = this.getUrlParamsObject(window.location.href);
         if (!params.target) {
             params.target = 'normal';
@@ -47,7 +47,7 @@ var EmsAppJumpComponent = (function () {
     };
     EmsAppJumpComponent.prototype.navigate = function (path) {
         var link = [path];
-        console.log("navigate link=" + link);
+        console.log('navigate link=' + link);
         this.router.navigate(link);
     };
     EmsAppJumpComponent.prototype.getUrlParams = function (url) {
@@ -57,16 +57,16 @@ var EmsAppJumpComponent = (function () {
             return url.substring('?'.length);
         }
         else {
-            return "";
+            return '';
         }
     };
     EmsAppJumpComponent.prototype.getUrlParamsObject = function (url) {
         var paramAndValuePairs = this.getUrlParams(url);
         var resultValue = {};
-        var array = paramAndValuePairs.split("&");
+        var array = paramAndValuePairs.split('&');
         var len = array.length;
         for (var index = 0; index < len; index++) {
-            var pair = array[index].split("=");
+            var pair = array[index].split('=');
             resultValue[pair[0]] = pair[1];
         }
         return resultValue;

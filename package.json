@@ -43,6 +43,8 @@
     "karma-webpack": "^1.7.0",
     "null-loader": "^0.1.1",
     "raw-loader": "^0.5.1",
+    "url-loader": "^0.5.1",
+    "css-to-string-loader": "^0.1.0",
     "rimraf": "^2.5.2",
     "postcss-loader": "^0.9.1",
     "sass-loader": "^4.0.0",

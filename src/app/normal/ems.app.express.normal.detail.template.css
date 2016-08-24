@@ -3,13 +3,12 @@
     border-radius: 4px 4px 0 0;
     width: 85%;
     margin: 15px auto 0px auto;
-
+    padding: 10px 10px 10px 10px;
 }
 .status_layout #postid{
     color: #ffffff;
     font-size: 120%;
     display: block;
-    padding: 5px 10px 0px 10px;
 }
 
 /*.status_layout #postid a:link{color: #ffffff}     !* 未访问的链接 *!*/
@@ -20,7 +19,6 @@
     color: #ffffff;
     font-size: 120%;
     display: block;
-    padding: 2px 10px 5px 10px;
 }
 
 
@@ -64,14 +62,20 @@ tr {
 
 .result-info2 .status {
     width: 30px;
-    background: url(../../assets/images/ic_express_progress_status.png)  center no-repeat #fbfbfb;
+    background-image: url(../../assets/images/ic_express_progress_status.png);
+    background-repeat: no-repeat;
+    background-color: #fbfbfb;
+    background-position: center;
     background-size: 30px;
     border-radius: 0;
 }
 
 .result-info2 .status-check {
     width: 30px;
-    background: url(../../assets/images/ic_express_progress_status_current.png) center no-repeat #fbfbfb ;
+    background-image: url(../../assets/images/ic_express_progress_status_current.png);
+    background-repeat: no-repeat;
+    background-color: #fbfbfb;
+    background-position: center;
     background-size: 30px;
     border-radius: 0;
 }

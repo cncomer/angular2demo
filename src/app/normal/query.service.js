@@ -21,7 +21,7 @@ var NormalExpressQueryService = (function () {
         this.queryUrl = 'http://www.dzbxk.com/V4_5/EMSSearch.ashx'; // URL to web API, example http://www.kuaidi100.com/query?type=ems&postid=1006739505821
     }
     NormalExpressQueryService.prototype.getEmsNormalExpressObject = function (id) {
-        console.log("NormalExpressQueryService getEmsNormalExpressObject id " + id);
+        console.log('NormalExpressQueryService getEmsNormalExpressObject id ' + id);
         var params = new http_1.URLSearchParams();
         params.set('type', "ems"); // the user's search value
         params.set('postid', id);
@@ -37,9 +37,9 @@ var NormalExpressQueryService = (function () {
     //    return Promise.resolve(mock);
     //}
     NormalExpressQueryService.prototype.extractData = function (res) {
-        console.log("Response " + res);
+        console.log('Response ' + res);
         var body = res.json();
-        console.log("Response " + JSON.stringify(body));
+        console.log('Response ' + JSON.stringify(body));
         body = body || {};
         if (body) {
             if (body.status !== '200') {

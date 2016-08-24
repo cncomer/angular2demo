@@ -7,10 +7,10 @@ module.exports = webpackMerge(commonConfig, {
     /**
      * Switch loaders to debug mode.
      *
-     * See: http://webpack.github.io/docs/configuration.html#debug
+     * See: http://webpack.github.io/docs/configuration.html#debug cheap-module-eval-source-map
      */
     debug: true,
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'source-map',
 
     output: {
         path: helpers.root('dist'),

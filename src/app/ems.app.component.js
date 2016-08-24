@@ -10,16 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require("@angular/platform-browser");
+var platform_browser_1 = require('@angular/platform-browser');
 require('../assets/css/styles.css');
 var EmsAppComponent = (function () {
     function EmsAppComponent(titleService) {
         this.titleService = titleService;
         this.title = 'Tour of Heroes';
-        this.setTitle("邮政速递物流");
+        this.setTitle('邮政速递物流');
     }
     EmsAppComponent.prototype.ngOnInit = function () {
-        console.log("EmsAppComponent ngOnInit");
+        console.log('EmsAppComponent ngOnInit');
     };
     EmsAppComponent.prototype.setTitle = function (newTitle) {
         this.titleService.setTitle(newTitle);

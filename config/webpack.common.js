@@ -123,7 +123,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 include: helpers.root('src', 'app'),
-                loader: 'raw'
+                loader: 'css-to-string!css'
             },
 
             /* Raw loader support for *.html
@@ -141,7 +141,7 @@ module.exports = {
              */
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-                loader: 'file?name=assets/[name].[hash].[ext]'
+                loader: 'url-loader?name=assets/[name].[hash].[ext]&limit=8192'
             }
         ]
 

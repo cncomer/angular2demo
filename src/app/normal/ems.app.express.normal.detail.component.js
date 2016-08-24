@@ -15,16 +15,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var query_service_1 = require("./query.service");
-var ems_normal_expressobject_1 = require("./ems.normal.expressobject");
-var router_1 = require("@angular/router");
+var query_service_1 = require('./query.service');
+var ems_normal_expressobject_1 = require('./ems.normal.expressobject');
+var router_1 = require('@angular/router');
 var EmsNormalExpressComponent = (function () {
     function EmsNormalExpressComponent(normalExpressQueryService, router, route) {
         this.normalExpressQueryService = normalExpressQueryService;
         this.router = router;
         this.route = route;
-        this.title = "邮件详情";
-        this.loadText = "正在查询,请稍后...";
+        this.title = '邮件详情';
+        this.loadText = '正在查询,请稍后...';
         this.fromHome = false;
     }
     EmsNormalExpressComponent.prototype.ngOnInit = function () {
@@ -36,7 +36,7 @@ var EmsNormalExpressComponent = (function () {
         //     * 该干嘛干嘛
         //     */
         //});
-        console.log("EmsNormalExpressComponent ngOnInit");
+        console.log('EmsNormalExpressComponent ngOnInit');
         this.route.params.forEach(function (params) {
             var id = params['id'];
             _this.normalExpressQueryService.getEmsNormalExpressObject(id).then(function (emsNormalExpressObject) {
@@ -59,8 +59,7 @@ var EmsNormalExpressComponent = (function () {
         return context;
     };
     EmsNormalExpressComponent.prototype.goBack = function () {
-        //window.history.back();
-        this.router.navigate(['']);
+        this.router.navigateByUrl('/query');
     };
     __decorate([
         core_1.Input(), 
