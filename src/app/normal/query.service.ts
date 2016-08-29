@@ -53,4 +53,37 @@ export class NormalExpressQueryService {
         return Promise.reject(errMsg);
     }
 
+
+
+    public get(url: string, params: string) {
+        //if (true) {
+        //    return Promise.resolve({"jsapi_ticket":"sM4AOVdWfPE4DxkXGEs8VHFYqFcwcADKgwmp3r-ot-BzXGKvvlzZgq-a0PR2CpVJ5BmMBmczyLjGdmVqTPbUzw","noncestr":"abcd","timestamp":"1472111285","url":"dsadsa","sign":"2e9a23c78560216c39e618c0dd74d6b73cc7c508","appid":null});
+        //}
+        let options = new URLSearchParams();
+        let keyValues: string[] = params.split('&');
+        keyValues.forEach(function(keyValue: string) {
+            let keyValues: string[] = keyValue.split('=');
+            if (keyValues.length == 2) {
+                options.set(keyValues[0], keyValues[1]);
+            } else {
+                options.set(keyValues[0], '');
+            }
+
+        });
+
+        options.set('format', 'json');
+        options.set('callback', 'JSONP_CALLBACK');
+        return this.jsonp.get(url, {search: options})
+            .toPromise()
+            .then(this.extractServerData)
+            .catch(this.handleError);
+    }
+
+    private extractServerData(res: Response) {
+        let body = res.json();
+        console.log('Response ' + JSON.stringify(body));
+        body = body || { };
+        return body;
+    }
+
 }

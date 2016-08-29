@@ -99,6 +99,12 @@ module.exports = {
                 loaders: ['ts', 'angular2-template-loader']
             },
 
+            //{
+            //    test: /\.js$/,
+            //    loaders: 'file?name=assets/[name].[ext]',
+            //    include: [helpers.root('src/index.html')]
+            //},
+
             /*
              * Json loader support for *.json files.
              *
@@ -129,7 +135,7 @@ module.exports = {
             /* Raw loader support for *.html
              * Returns file content as string
              *
-             * See: https://github.com/webpack/raw-loader
+             * See: https://github.com/webpack/html-loader
              */
             {
                 test: /\.html$/,
@@ -203,8 +209,13 @@ module.exports = {
          * See: https://github.com/ampedandwired/html-webpack-plugin
          */
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
-            chunksSortMode: 'dependency'
+            template: './src/index.html',
+            favicon:'./src/assets/images/favicon.ico', //favicon存放路径
+            chunksSortMode: 'dependency',
+            libJS: [
+                //上拉下拉
+                './src/assets/js/jweixin-1.0.0.js'
+            ]
         })
 
     ],
